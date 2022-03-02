@@ -1,0 +1,55 @@
+.business-strategy,
+.digitalization,
+.risk-assessment,
+.artificial-intelligence,
+.smart-contracts {
+  margin-top: 150px;
+}
+
+.image-service img,
+.image-service-right img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  filter: grayscale(100%);
+  border-radius: 25px;
+}
+.content-title h2 {
+  font-size: 48px;
+  color: #1d3444;
+  font-weight: 600;
+  margin-top: 150px;
+}
+.content-para {
+  margin-bottom: 0rem;
+  color: #4a5d69;
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+.image-service,
+.image-service-right {
+  position: relative;
+}
+.image-service::after {
+  content: "";
+  width: 100px;
+  height: 100px;
+  background: #f58a07;
+  position: absolute;
+  mix-blend-mode: multiply;
+  top: 20%;
+  left: -5%;
+  border-radius: 20px;
+}
+
+.image-service-right::after {
+  content: "";
+  width: 100px;
+  height: 100px;
+  background: #f58a07;
+  position: absolute;
+  mix-blend-mode: multiply;
+  top: 50%;
+  right: -5%;
+  border-radius: 20px;
+}

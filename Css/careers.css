@@ -1,0 +1,75 @@
+.section-careers {
+  margin-top: 90px;
+}
+
+.image-container img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  filter: grayscale(100%);
+}
+.header-2 h2 {
+  font-size: 64px;
+  color: #1d3444;
+}
+.header-2 {
+  margin-top: 0;
+}
+.header-2 p {
+  font-size: 18px;
+  font-weight: 500;
+  color: #5b5b5b;
+  margin-top: 25px;
+}
+.btn {
+  border: 1px solid #f58a07;
+  font-size: 16px;
+  padding: 0.75rem 2rem;
+  background-color: #f58a07;
+  color: white;
+  margin-top: 25px;
+}
+.btn:hover {
+  color: white;
+  background-color: #be6b05;
+}
+.position-offers a {
+  text-decoration: none;
+}
+.position-offers {
+  border: 1px solid #dceaf5;
+  background-color: #dceaf5;
+  border-radius: 20px;
+  padding: 32px;
+}
+.heading-small {
+  font-size: 24px;
+  line-height: 1.5;
+  font-weight: 500;
+  color: #1d3444;
+}
+.location-text {
+  margin-right: 1rem;
+  color: rgba(74, 93, 105, 0.6);
+  font-size: 18px;
+}
+.applyorange {
+  color: #f58a07;
+  font-size: 18px;
+}
+.positions {
+  margin-top: 90px;
+}
+.position-title {
+  font-size: 48px;
+  font-weight: 600;
+  margin-left: 120px;
+}
+.btn-primary {
+  text-decoration: none;
+  color: #f58a07;
+  font-weight: 500;
+  font-size: 12px;
+  background-color: white;
+  border: white;
+}
