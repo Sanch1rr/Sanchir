@@ -30,26 +30,73 @@ let finsetModal = new bootstrap.Modal(document.getElementById("finsetModal"), {
 // Create Click Event Listener on Play button variable (you already created above)
 // add finsetModal.show() on callback function
 // Select '.modal-body' class from finsetModal variable then use innerHTML method and add Youtube embed code
-// playButton.addEventListener("click", function () {
-//   finsetModal.show();
-//   // console.log(finsetModal);
-//   finsetModal._element.querySelector(
-//     ".modal-body"
-//   ).innerHTML = `<iframe width="100%" height="600"`;
-// });
+playButton.addEventListener("click", function () {
+  finsetModal.show();
+  // console.log(finsetModal);
+  finsetModal._element.querySelector(
+    ".modal-body"
+  ).innerHTML = `<iframe width="100%" height="600" src="https://www.youtube.com/embed/o0KmjcGd6jw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+});
 // Create an XMLHttpRequest object
 // Create a callback function
 // Open a GET request and use data from ../data/company_intro.json
 // Send the request
-let xhr = new XMLHttpRequest();
-xhr.onreadystatechange = function () {
-  if (xhr.readyState === 4 && xhr.status === 200) {
-    let data = JSON.parse(xhr.responseText);
-  }
-};
-xhr.open("GET", "/data/company_intro.json");
-xhr.send();
 
+const cardURL = "/data/company_intro.json";
+
+getJSON(cardURL);
+
+function getJSON(cardURL) {
+  let xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      let parse = JSON.parse(xhr.responseText);
+      // callback(parse);
+      // console.log(parse.data);
+      generateHTML(parse.data);
+    }
+  };
+  xhr.open("GET", cardURL);
+  xhr.send();
+}
+
+function generateHTML(data) {
+  console.log(data);
+  let section = document.querySelector(".ro");
+  let section8 = document.querySelector(".sec8");
+  data.forEach((e) => {
+    section.innerHTML += `<div class="col-12 col-md-6 col-lg-3">
+  <div class="card">
+      <img src="${e.thumbnail}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">${e.title}</h5>
+        <p class="card-text p1">${e.content}.</p>
+        <a href="#" class="btn btn-primary">Learn More &#8594;</a>
+      </div>
+    </div>
+</div>
+    `;
+  });
+  let some = "";
+  for (let key in data) {
+    if (data[key].hasOwnProperty("title")) {
+      some += `<div class="col-12 col-md-6 col-lg-3">
+  <div class="card">
+      <img src="${data[key].thumbnail}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">${data[key].title}</h5>
+        <p class="card-text p1">${data[key].content}.</p>
+        <a href="#" class="btn btn-primary">Learn More &#8594;</a>
+      </div>
+    </div>
+</div>
+       `;
+    } else {
+      console.log("None");
+    }
+  }
+  section8.innerHTML = some;
+}
 /*  Add subscription email action. When subscription POST request is successful, 
     change the email element and subscribe button into "Your subscription is successful" Text. 
     POST request should be done by AJAX request. We need a POST request end point for subscription email. 
